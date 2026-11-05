@@ -1,0 +1,422 @@
+# SOFTWARE TESTING ASSIGNMENT
+
+**Topic: Testing Levels, Black Box vs White Box Testing, and Test Automation Pyramid**
+
+## 1. Explain the Four Testing Levels with Examples
+
+Software testing is performed at different levels to ensure that an application works correctly, meets business requirements, and provides a good user experience. There are four main levels of software testing:
+
+### 1.1 Unit Testing
+
+**Definition:**
+
+Unit testing is the first level of software testing. It involves testing individual components, functions, or methods of an application independently to verify that each component works as expected.
+
+**Purpose:**
+- To identify defects in individual functions or components.
+- To verify that each unit produces the expected output.
+- To make debugging easier and faster.
+
+**Example:**
+
+Consider an e-commerce application with a function that calculates the total price of products.
+
+- Product price = ₹1,000
+- Quantity = 2
+- Expected total = ₹2,000
+
+A unit test checks whether the price calculation function returns ₹2,000.
+
+**Tools:** JUnit, NUnit, PyTest, Jest.
+
+### 1.2 Integration Testing
+
+**Definition:**
+
+Integration testing is the second level of testing. It verifies whether two or more individual modules work together correctly and exchange data as expected.
+
+**Purpose:**
+- To identify issues in communication between modules.
+- To verify data flow between integrated components.
+- To ensure that connected services work correctly.
+
+**Example:**
+
+Consider an e-commerce application with the following modules:
+
+1. Login module
+2. Product module
+3. Shopping cart module
+4. Payment module
+
+When a customer adds a product to the cart and proceeds to payment, integration testing verifies whether the product details, price, and payment information are transferred correctly between these modules.
+
+**Tools:** Postman, REST Assured, JUnit, TestNG.
+
+### 1.3 System Testing
+
+**Definition:**
+
+System testing is the third level of testing. It involves testing the complete and integrated application to verify whether it meets the specified functional and non-functional requirements.
+
+**Purpose:**
+- To validate the complete application.
+- To verify end-to-end business workflows.
+- To check application functionality, performance, security, and usability.
+
+**Example:**
+
+Consider an e-commerce website.
+
+A tester performs the complete shopping process:
+
+1. Open the website.
+2. Register or log in.
+3. Search for a product.
+4. Add the product to the cart.
+5. Complete the payment.
+6. Verify the order confirmation.
+
+System testing ensures that the complete shopping workflow works correctly.
+
+**Tools:** Selenium, Cypress, Playwright, JMeter.
+
+### 1.4 Acceptance Testing
+
+**Definition:**
+
+Acceptance testing is the final level of testing. It verifies whether the application meets business requirements and is ready for delivery or release. It is generally performed by clients, business users, or end users.
+
+**Purpose:**
+- To confirm that business requirements are fulfilled.
+- To ensure the application is ready for production.
+- To verify that the application meets user expectations.
+
+**Example:**
+
+A company develops an online banking application. Before releasing it, the client tests important features such as:
+
+- User login.
+- Checking account balance.
+- Money transfers.
+- Transaction history.
+- Downloading bank statements.
+
+If all important business requirements are satisfied, the client can approve the application for release.
+
+**Types:** User Acceptance Testing (UAT), Alpha Testing, and Beta Testing.
+
+### Summary of Four Testing Levels
+
+| Testing Level | What Is Tested? | Example |
+|---|---|---|
+| Unit Testing | Individual functions or components | Price calculation |
+| Integration Testing | Communication between modules | Cart and payment integration |
+| System Testing | Complete application | End-to-end shopping |
+| Acceptance Testing | Business requirements and user expectations | Client approval |
+
+**Conclusion:**
+
+The four testing levels help identify defects at different stages of software development. Unit testing checks individual components, integration testing checks communication between modules, system testing validates the complete application, and acceptance testing confirms that the application meets business requirements.
+
+---
+
+## 2. Compare Black Box Testing and White Box Testing
+
+Software testing can be performed using different approaches. Two important testing techniques are Black Box Testing and White Box Testing.
+
+### 2.1 Black Box Testing
+
+**Definition:**
+
+Black Box Testing is a software testing technique in which the tester tests an application's functionality without knowing or examining its internal source code or implementation.
+
+The tester provides inputs and verifies whether the application produces the expected outputs.
+
+**Main Characteristics:**
+
+- No knowledge of internal source code is required.
+- Focuses on application functionality.
+- Tests inputs and outputs.
+- Validates the application against business requirements.
+- Commonly performed by software testers.
+
+**Example:**
+
+Consider a login page.
+
+A tester enters:
+- Valid username.
+- Valid password.
+
+Expected result: The user should successfully log in.
+
+The tester also enters an invalid password.
+
+Expected result: The application should display an appropriate error message.
+
+The tester checks the application's behavior without examining the source code.
+
+**Black Box Testing Techniques:**
+
+1. Equivalence Partitioning – Dividing input data into valid and invalid groups.
+2. Boundary Value Analysis – Testing minimum and maximum input values.
+3. Decision Table Testing – Testing different combinations of conditions.
+4. State Transition Testing – Testing application behavior when moving between states.
+
+### 2.2 White Box Testing
+
+**Definition:**
+
+White Box Testing is a software testing technique in which the tester examines the internal structure, source code, logic, and execution paths of an application.
+
+It requires knowledge of programming and the application's internal implementation.
+
+**Main Characteristics:**
+
+- Requires knowledge of source code.
+- Focuses on internal logic and code structure.
+- Checks execution paths and conditions.
+- Identifies logical errors and coding defects.
+- Commonly performed by developers and technical testers.
+
+**Example:**
+
+Consider the login functionality of an application.
+
+A developer examines the code responsible for login authentication and checks:
+
+- Whether the username validation condition works correctly.
+- Whether password verification is implemented correctly.
+- Whether valid and invalid conditions are handled properly.
+- Whether all important code branches are executed.
+
+The developer tests the internal logic rather than only checking the visible login page.
+
+**White Box Testing Techniques:**
+
+1. Statement Coverage – Ensures that executable statements are executed.
+2. Branch Coverage – Ensures that decision outcomes are tested.
+3. Path Coverage – Tests different execution paths.
+4. Condition Coverage – Checks individual Boolean conditions.
+
+### 2.3 Difference Between Black Box and White Box Testing
+
+| Comparison | Black Box Testing | White Box Testing |
+|---|---|---|
+| Meaning | Tests application functionality | Tests internal code and logic |
+| Source Code | No access required | Access required |
+| Focus | Input and output | Internal implementation |
+| Knowledge | Business and functional knowledge | Programming and code knowledge |
+| Performed By | QA testers and testers | Developers and technical testers |
+| Testing Basis | Requirements and specifications | Source code and design |
+| Techniques | Boundary Value Analysis, Equivalence Partitioning | Statement, Branch, and Path Coverage |
+| Defects Found | Functional and interface defects | Logical and code-related defects |
+| Example | Testing login with valid and invalid credentials | Testing login authentication code |
+
+### 2.4 Real-World Example
+
+Consider a registration form containing the following fields:
+
+- First Name
+- Last Name
+- Email Address
+- Password
+- Confirm Password
+
+**Black Box Testing:**
+
+A tester checks whether:
+- The user can register with valid information.
+- Invalid email formats are rejected.
+- Required fields display validation messages.
+- Password and confirm password must match.
+- Successful registration displays a confirmation message.
+
+**White Box Testing:**
+
+A developer checks whether:
+- Email validation logic is correctly implemented.
+- Password comparison conditions work properly.
+- Required-field validation executes correctly.
+- Error-handling conditions are covered.
+- All important code branches execute as expected.
+
+**Conclusion:**
+
+Both Black Box Testing and White Box Testing are important for software quality. Black Box Testing verifies whether the application behaves according to requirements, while White Box Testing verifies whether the internal code and logic work correctly. Using both techniques provides better testing coverage and helps deliver reliable software.
+
+---
+
+## 3. Draw and Explain the Test Automation Pyramid
+
+### 3.1 What Is the Test Automation Pyramid?
+
+The Test Automation Pyramid is a testing strategy that explains how automated tests should be distributed across different testing levels.
+
+It recommends having:
+- A large number of Unit Tests at the bottom.
+- A moderate number of Integration or Service Tests in the middle.
+- A small number of UI or End-to-End Tests at the top.
+
+The main objective is to achieve faster feedback, better test coverage, lower maintenance costs, and more reliable automation.
+
+### 3.2 Test Automation Pyramid Diagram
+
+```text
+                  /\
+                 /  \
+                / UI \
+               / TESTS\
+              /--------\
+             /          \
+            / INTEGRATION\
+           /    TESTS     \
+          /----------------\
+         /                  \
+        /    UNIT TESTS      \
+       /                      \
+      /________________________\
+
+          TEST AUTOMATION PYRAMID
+```
+
+### 3.3 Three Layers of the Test Automation Pyramid
+
+#### Layer 1: Unit Tests (Bottom Layer)
+
+**Definition:**
+
+Unit tests are automated tests that verify individual functions, methods, or components independently.
+
+They form the foundation of the automation pyramid because they are fast, reliable, and easy to execute.
+
+**Characteristics:**
+- Highest number of automated tests.
+- Very fast execution.
+- Low maintenance cost.
+- Easy to identify and debug failures.
+- Usually executed by developers.
+
+**Example:**
+
+In an e-commerce application, unit tests verify:
+
+- Product price calculations.
+- Discount calculations.
+- Tax calculations.
+- Password validation functions.
+
+For example, if a product costs ₹2,000 and the discount is 10%, the expected final price is ₹1,800.
+
+A unit test verifies that the discount calculation returns the correct value.
+
+**Tools:** JUnit, NUnit, Jest, PyTest.
+
+#### Layer 2: Integration Tests (Middle Layer)
+
+**Definition:**
+
+Integration tests verify whether different modules, APIs, databases, or services communicate and work together correctly.
+
+They are generally slower than unit tests but faster and less expensive to maintain than full UI tests.
+
+**Characteristics:**
+- Moderate number of automated tests.
+- Verify communication between components.
+- Check API and database interactions.
+- Identify data exchange and integration issues.
+
+**Example:**
+
+In an e-commerce application:
+
+1. A customer logs in.
+2. The customer adds a product to the cart.
+3. The cart sends product details to the order service.
+4. The order service communicates with the payment service.
+
+Integration tests verify that these services exchange the correct information.
+
+**Tools:** Postman, REST Assured, TestNG, JUnit.
+
+#### Layer 3: UI or End-to-End Tests (Top Layer)
+
+**Definition:**
+
+UI or End-to-End tests verify the complete application workflow from the user's perspective by interacting with the user interface.
+
+These tests simulate real user actions such as clicking buttons, entering information, navigating pages, and submitting forms.
+
+**Characteristics:**
+- Smallest number of automated tests.
+- Slower execution.
+- Higher maintenance cost.
+- Can be affected by UI changes.
+- Validate complete user journeys.
+
+**Example:**
+
+In an e-commerce application, an automated UI test performs the following steps:
+
+1. Open the application.
+2. Enter username and password.
+3. Click the Login button.
+4. Search for a product.
+5. Add the product to the cart.
+6. Proceed to checkout.
+7. Complete the payment.
+8. Verify the order confirmation page.
+
+This test ensures that the complete user journey works correctly.
+
+**Tools:** Selenium, Cypress, Playwright.
+
+### 3.4 Why Is the Test Automation Pyramid Important?
+
+The Test Automation Pyramid is important for the following reasons:
+
+1. **Faster Feedback:** Unit tests execute quickly and help identify defects early.
+2. **Better Test Coverage:** Different layers validate different parts of the application.
+3. **Lower Maintenance Cost:** More tests are maintained at the unit level, reducing dependence on expensive UI automation.
+4. **Early Defect Detection:** Issues can be identified before they reach the final testing stage.
+5. **Improved Reliability:** A balanced automation strategy improves overall application quality.
+6. **Reduced Execution Time:** A smaller number of slow UI tests helps keep test execution efficient.
+
+### 3.5 Comparison of the Three Pyramid Layers
+
+| Feature | Unit Tests | Integration Tests | UI Tests |
+|---|---|---|---|
+| Position | Bottom | Middle | Top |
+| Quantity | High | Medium | Low |
+| Execution Speed | Very Fast | Moderate | Slow |
+| Cost | Low | Medium | High |
+| Focus | Individual functions | Module communication | Complete user workflow |
+| Example | Discount calculation | API and database interaction | Login and checkout |
+| Tools | JUnit, Jest | Postman, REST Assured | Selenium, Cypress |
+
+**Conclusion:**
+
+The Test Automation Pyramid helps teams build an effective automation strategy. Unit tests should form the largest part of the test suite, integration tests should validate communication between components, and UI tests should cover important end-to-end workflows.
+
+Following this approach reduces execution time, minimizes maintenance costs, and improves software quality.
+
+---
+
+## 4. Overall Conclusion
+
+Software testing plays an important role in delivering high-quality and reliable applications.
+
+The four testing levels — Unit Testing, Integration Testing, System Testing, and Acceptance Testing — help identify defects at different stages of development.
+
+Black Box Testing and White Box Testing provide two different approaches to validating application functionality and internal code quality.
+
+The Test Automation Pyramid provides a structured approach to automation by recommending more unit tests, a moderate number of integration tests, and fewer UI tests.
+
+By combining these testing levels, testing techniques, and automation strategies, software development teams can reduce defects, improve application performance, increase test coverage, and deliver a better user experience.
+
+**Final Result:** A well-tested application should meet business requirements, function correctly, maintain reliable internal logic, and provide a smooth experience for end users.
+
+---
+
+**END OF ASSIGNMENT**
